@@ -1,4 +1,4 @@
-package br.com.newton.transparente.fragments.itens
+package br.com.newton.transparente.fragments.itens.main
 
 import androidx.lifecycle.ViewModel
 

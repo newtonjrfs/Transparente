@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/itensFragment">
+    <fragment
+        android:id="@+id/itensFragment"
+        android:name="br.com.newton.transparente.fragments.itens.main.ItensFragment"
+        android:label="itens_fragment"
+        tools:layout="@layout/itens_fragment">
+        <action
+            android:id="@+id/action_itensFragment_to_detalheFragment"
+            app:destination="@id/detalheFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalheFragment"
+        android:name="br.com.newton.transparente.fragments.itens.detalhe.DetalheFragment"
+        android:label="detalhe_fragment"
+        tools:layout="@layout/detalhe_fragment">
+        <action
+            android:id="@+id/action_detalheFragment_to_dadosFragment"
+            app:destination="@id/dadosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dadosFragment"
+        android:name="br.com.newton.transparente.fragments.itens.dados.DadosFragment"
+        android:label="dados_fragment"
+        tools:layout="@layout/dados_fragment" />
+</navigation>

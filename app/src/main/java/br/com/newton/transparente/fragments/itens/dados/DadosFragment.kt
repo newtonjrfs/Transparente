@@ -1,33 +1,31 @@
-package br.com.newton.transparente.fragments.itens
+package br.com.newton.transparente.fragments.itens.dados
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
-
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import br.com.newton.transparente.R
 
-class ItensFragment : Fragment() {
+class DadosFragment : Fragment() {
 
     companion object {
-        fun newInstance() =
-            ItensFragment()
+        fun newInstance() = DadosFragment()
     }
 
-    private lateinit var viewModel: ItensViewModel
+    private lateinit var viewModel: DadosViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.itens_fragment, container, false)
+        return inflater.inflate(R.layout.dados_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ItensViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(DadosViewModel::class.java)
         // TODO: Use the ViewModel
     }
 
