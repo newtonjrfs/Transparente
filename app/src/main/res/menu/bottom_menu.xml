@@ -3,8 +3,10 @@
 
     <item
         android:id="@+id/itensFragment"
-        android:title="Principal" />
+        android:icon="@drawable/ic_lens"
+        android:title="@string/principal" />
     <item
         android:id="@+id/ajustesFragment"
-        android:title="Ajustes" />
+        android:icon="@drawable/ic_info"
+        android:title="@string/informacoes" />
 </menu>

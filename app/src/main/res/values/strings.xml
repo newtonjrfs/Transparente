@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Transparente</string>
+    <string name="bolsa_familia">Bolsa Família</string>
+    <string name="despesas_publicas">Despesas Públicas</string>
+    <string name="principal">Principal</string>
+    <string name="informacoes">Informações</string>
 </resources>
