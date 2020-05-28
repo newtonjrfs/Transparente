@@ -5,8 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import br.com.newton.transparente.R
+import kotlinx.android.synthetic.main.itens_fragment.*
 
 class ItensFragment : Fragment() {
 
@@ -14,8 +15,6 @@ class ItensFragment : Fragment() {
         fun newInstance() =
             ItensFragment()
     }
-
-    private lateinit var viewModel: ItensViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,8 +25,10 @@ class ItensFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ItensViewModel::class.java)
-        // TODO: Use the ViewModel
+        buttonConsultar.setOnClickListener {
+            findNavController().navigate(R.id.action_itensFragment_to_detalheFragment)
+        }
     }
+
 
 }

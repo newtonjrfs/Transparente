@@ -4,4 +4,8 @@
     <string name="despesas_publicas">Despesas Públicas</string>
     <string name="principal">Principal</string>
     <string name="informacoes">Informações</string>
+    <string name="consultar">Consultar</string>
+    <string name="transparencia">Transparência</string>
+    <string name="consulta_da_transparencia">Consulta\nda\ntransparência</string>
+    <string name="consulte_informacoes_sobre_sua_cidade">Consulte informações sobre sua cidade</string>
 </resources>
