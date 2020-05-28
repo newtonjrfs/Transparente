@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import br.com.newton.transparente.R
+import kotlinx.android.synthetic.main.detalhe_fragment.*
 
 class DetalheFragment : Fragment() {
 
@@ -23,6 +25,24 @@ class DetalheFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        val args = Bundle()
+
+        buttonBPC.setOnClickListener {
+            args.putInt("id", 1)
+            findNavController().navigate(R.id.action_detalheFragment_to_dadosFragment, args)
+        }
+        buttonBolsaFamilia.setOnClickListener {
+            args.putInt("id", 2)
+            findNavController().navigate(R.id.action_detalheFragment_to_dadosFragment, args)
+        }
+        buttonSafra.setOnClickListener {
+            args.putInt("id", 3)
+            findNavController().navigate(R.id.action_detalheFragment_to_dadosFragment, args)
+        }
+        buttonPeti.setOnClickListener {
+            args.putInt("id", 4)
+            findNavController().navigate(R.id.action_detalheFragment_to_dadosFragment, args)
+        }
     }
 
 }
