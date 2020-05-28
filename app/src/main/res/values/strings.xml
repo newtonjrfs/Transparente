@@ -8,4 +8,7 @@
     <string name="transparencia">Transparência</string>
     <string name="consulta_da_transparencia">Consulta\nda\ntransparência</string>
     <string name="consulte_informacoes_sobre_sua_cidade">Consulte informações sobre sua cidade</string>
+    <string name="beneficio_prestacao_conta">Benefício de Prestação Continuada</string>
+    <string name="garantia_safra">Garantia Safra</string>
+    <string name="programa_erradicacao_trabalho_infantil">Programa de Erradicação do Trabalho Infantil</string>
 </resources>
