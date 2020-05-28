@@ -1,3 +1,5 @@
 package br.com.newton.transparente.model.estados
 
-class Estados : ArrayList<EstadosItem>()
+data class Estados(
+    val estados: ArrayList<EstadosItem>
+)
