@@ -10,4 +10,7 @@ class RetrofitInicializerTransparencia {
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
+
+    fun buscaTransparencia() = retrofitTransparencia.create(TransparenciaService::class.java)
+
 }

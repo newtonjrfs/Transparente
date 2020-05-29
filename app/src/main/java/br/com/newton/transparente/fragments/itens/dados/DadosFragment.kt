@@ -58,10 +58,6 @@ class DadosFragment : Fragment() {
         textViewTitle.text = title
     }
 
-    private fun buscarDados() {
-
-    }
-
     private fun populationSpinnerCidades(list: List<CidadesView>) {
         val listname = list.map { it.nome }
         val listSpinner =
@@ -105,6 +101,10 @@ class DadosFragment : Fragment() {
                 editDate.error = getString(R.string.campo_invalido)
             }
         }
+    }
+
+    private fun buscarDados() {
+
     }
 
 }
