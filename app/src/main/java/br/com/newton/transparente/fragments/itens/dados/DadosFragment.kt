@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import br.com.newton.transparente.R
 import br.com.newton.transparente.model.view.EstadosView
+import kotlinx.android.synthetic.main.dados_fragment.*
 
 class DadosFragment : Fragment() {
 
@@ -42,6 +44,10 @@ class DadosFragment : Fragment() {
 
     private fun populationSpinner(list: List<EstadosView>) {
         val listname = list.map { it.nome }
+        val listSpinner =
+            ArrayAdapter(requireContext(), R.layout.support_simple_spinner_dropdown_item, listname)
+        listSpinner.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
+        spinnerCidade.adapter = listSpinner
     }
 
 }

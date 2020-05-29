@@ -44,6 +44,7 @@
         app:layout_constraintTop_toBottomOf="@+id/spinnerCidade">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/mes_ano"
