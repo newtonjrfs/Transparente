@@ -1,4 +1,4 @@
-package br.com.newton.transparente.model.cidades
+package br.com.newton.transparente.model.network.cidades
 
 data class Regiao(
     val id: Int?, // 3

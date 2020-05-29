@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import br.com.newton.transparente.R
+import br.com.newton.transparente.model.view.EstadosView
 
 class DadosFragment : Fragment() {
 
@@ -28,7 +30,18 @@ class DadosFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(DadosViewModel::class.java)
+        viewModel.requisitarEstados()
+        viewModel.buscarListaDeEstados().observe(viewLifecycleOwner, Observer { list ->
+            val listIbge = ArrayList<EstadosView>()
+            list.forEach {
+                listIbge.add(EstadosView(it.nome, it.id))
+            }
+            populationSpinner(listIbge)
+        })
+    }
 
+    private fun populationSpinner(list: List<EstadosView>) {
+        val listname = list.map { it.nome }
     }
 
 }
