@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import br.com.newton.transparente.R
+import br.com.newton.transparente.model.view.CidadesView
 import br.com.newton.transparente.model.view.EstadosView
 import kotlinx.android.synthetic.main.dados_fragment.*
 
@@ -34,20 +36,43 @@ class DadosFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(DadosViewModel::class.java)
         viewModel.requisitarEstados()
         viewModel.buscarListaDeEstados().observe(viewLifecycleOwner, Observer { list ->
-            val listIbge = ArrayList<EstadosView>()
-            list.forEach {
-                listIbge.add(EstadosView(it.nome, it.id))
-            }
-            populationSpinner(listIbge)
+            populationSpinnerEstados(list)
+        })
+        viewModel.buscarListaDeCidades().observe(viewLifecycleOwner, Observer { list ->
+            populationSpinnerCidades(list)
         })
     }
 
-    private fun populationSpinner(list: List<EstadosView>) {
+    private fun populationSpinnerCidades(list: List<CidadesView>) {
         val listname = list.map { it.nome }
         val listSpinner =
             ArrayAdapter(requireContext(), R.layout.support_simple_spinner_dropdown_item, listname)
         listSpinner.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
-        spinnerCidade.adapter = listSpinner
+        spinnerCidades.adapter = listSpinner
+    }
+
+    private fun populationSpinnerEstados(list: List<EstadosView>) {
+        val listname = list.map { it.nome }
+        val listSpinner =
+            ArrayAdapter(requireContext(), R.layout.support_simple_spinner_dropdown_item, listname)
+        listSpinner.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
+        spinnerEstados.adapter = listSpinner
+
+        spinnerEstados.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>,
+                    view: View,
+                    position: Int,
+                    id: Long
+                ) {
+                    viewModel.requisitarCidades(list[position].id)
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>) {
+                    viewModel.requisitarCidades(list[0].id)
+                }
+            }
     }
 
 }

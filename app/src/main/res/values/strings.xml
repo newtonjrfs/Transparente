@@ -13,4 +13,6 @@
     <string name="programa_erradicacao_trabalho_infantil">Programa de Erradicação do Trabalho Infantil</string>
     <string name="escolha_a_cidade">Escolha a cidade</string>
     <string name="mes_ano">Mês/Ano</string>
+    <string name="escolha_o_estado">Escolha o estado</string>
+    <string name="buscar">Buscar</string>
 </resources>
