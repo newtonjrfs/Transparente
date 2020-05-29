@@ -16,4 +16,6 @@
     <string name="escolha_o_estado">Escolha o estado</string>
     <string name="buscar">Buscar</string>
     <string name="campo_invalido">Campo invalido</string>
+    <string name="bpc">B.P.C</string>
+    <string name="peti">P.E.T.I</string>
 </resources>
