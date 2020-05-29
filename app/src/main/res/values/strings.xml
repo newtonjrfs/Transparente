@@ -15,4 +15,5 @@
     <string name="mes_ano">Mês/Ano</string>
     <string name="escolha_o_estado">Escolha o estado</string>
     <string name="buscar">Buscar</string>
+    <string name="campo_invalido">Campo invalido</string>
 </resources>
