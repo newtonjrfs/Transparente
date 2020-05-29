@@ -11,4 +11,6 @@
     <string name="beneficio_prestacao_conta">Benefício de Prestação Continuada</string>
     <string name="garantia_safra">Garantia Safra</string>
     <string name="programa_erradicacao_trabalho_infantil">Programa de Erradicação do Trabalho Infantil</string>
+    <string name="escolha_a_cidade">Escolha a cidade</string>
+    <string name="mes_ano">Mês/Ano</string>
 </resources>
