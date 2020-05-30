@@ -12,8 +12,10 @@ import androidx.lifecycle.ViewModelProvider
 import br.com.newton.transparente.R
 import br.com.newton.transparente.model.view.CidadesView
 import br.com.newton.transparente.model.view.EstadosView
+import br.com.newton.transparente.model.view.Transparencia
 import br.com.newton.transparente.utils.downKeyboard
 import br.com.newton.transparente.utils.handleDate
+import br.com.newton.transparente.utils.handleMoneyRS
 import kotlinx.android.synthetic.main.dados_fragment.*
 
 class DadosFragment : Fragment() {
@@ -36,6 +38,7 @@ class DadosFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         editDate.handleDate()
+        textViewValorTotal.handleMoneyRS()
         criandoTitulo()
         viewModel = ViewModelProvider(this).get(DadosViewModel::class.java)
         viewModel.requisitarEstados()
@@ -45,6 +48,15 @@ class DadosFragment : Fragment() {
         viewModel.buscarListaDeCidades().observe(viewLifecycleOwner, Observer { list ->
             populationSpinnerCidades(list)
         })
+        viewModel.buscarRequisicao().observe(viewLifecycleOwner, Observer { resultado ->
+            populateText(resultado)
+        })
+    }
+
+    private fun populateText(resultado: Transparencia) {
+        textViewBeneficiarios.text =
+            getString(R.string.quantidade_beneficiarios, resultado.quantidade.toString())
+        textViewValorTotal.text = "${resultado.valor}"
     }
 
     private fun criandoTitulo() {
@@ -64,6 +76,15 @@ class DadosFragment : Fragment() {
             ArrayAdapter(requireContext(), R.layout.support_simple_spinner_dropdown_item, listname)
         listSpinner.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
         spinnerCidades.adapter = listSpinner
+
+        button.setOnClickListener {
+            if (editDate.text.toString().length == 7) {
+                buscarDados(list[spinnerCidades.selectedItemPosition].id.toString())
+                downKeyboard(requireActivity())
+            } else {
+                editDate.error = getString(R.string.campo_invalido)
+            }
+        }
     }
 
     private fun populationSpinnerEstados(list: List<EstadosView>) {
@@ -90,21 +111,11 @@ class DadosFragment : Fragment() {
             }
     }
 
-    override fun onResume() {
-        super.onResume()
-
-        button.setOnClickListener {
-            if (editDate.text.toString().length == 7) {
-                buscarDados()
-                downKeyboard(requireActivity())
-            } else {
-                editDate.error = getString(R.string.campo_invalido)
-            }
-        }
-    }
-
-    private fun buscarDados() {
-
+    private fun buscarDados(codigo: String) {
+        val mes = editDate.text.toString().split("/")[0]
+        val ano = editDate.text.toString().split("/")[1]
+        val data = "$ano$mes".toInt()
+        viewModel.requisitarDados(id = identificador, data = data, codigo = codigo)
     }
 
 }

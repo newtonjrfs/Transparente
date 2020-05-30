@@ -18,4 +18,7 @@
     <string name="campo_invalido">Campo invalido</string>
     <string name="bpc">B.P.C</string>
     <string name="peti">P.E.T.I</string>
+    <string name="beneficiarios">Beneficiarios</string>
+    <string name="valor_total">Valor total</string>
+    <string name="quantidade_beneficiarios">%1$s beneficiarios</string>
 </resources>
