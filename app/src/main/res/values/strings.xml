@@ -21,4 +21,9 @@
     <string name="beneficiarios">Beneficiarios</string>
     <string name="valor_total">Valor total</string>
     <string name="quantidade_beneficiarios">%1$s beneficiarios</string>
+    <string name="text_descricao_ajustes">Os dados são acessados por duas apis:
+    \n\nIBGE
+    \nAPI onde coleto as informações de cidades e estados
+    \n\nPortal da transparência
+    \nAPI onde coleto as informações referentes os valores e a quantidade de beneficiários</string>
 </resources>
