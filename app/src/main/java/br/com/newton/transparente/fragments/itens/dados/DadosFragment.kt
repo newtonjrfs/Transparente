@@ -77,12 +77,16 @@ class DadosFragment : Fragment() {
         listSpinner.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
         spinnerCidades.adapter = listSpinner
 
+        progressBarDados.visibility = View.GONE
+
         button.setOnClickListener {
+            progressBarDados.visibility = View.VISIBLE
             if (editDate.text.toString().length == 7) {
                 buscarDados(list[spinnerCidades.selectedItemPosition].id.toString())
                 downKeyboard(requireActivity())
             } else {
                 editDate.error = getString(R.string.campo_invalido)
+                progressBarDados.visibility = View.GONE
             }
         }
     }
@@ -116,6 +120,7 @@ class DadosFragment : Fragment() {
         val ano = editDate.text.toString().split("/")[1]
         val data = "$ano$mes".toInt()
         viewModel.requisitarDados(id = identificador, data = data, codigo = codigo)
+        progressBarDados.visibility = View.GONE
     }
 
 }
