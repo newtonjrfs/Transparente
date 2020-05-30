@@ -81,7 +81,9 @@ class DadosFragment : Fragment() {
 
         button.setOnClickListener {
             progressBarDados.visibility = View.VISIBLE
-            if (editDate.text.toString().length == 7) {
+            if (editDate.text.toString().length == 7 && editDate.text.toString().split("/").first()
+                    .toInt() < 13
+            ) {
                 buscarDados(list[spinnerCidades.selectedItemPosition].id.toString())
                 downKeyboard(requireActivity())
             } else {
