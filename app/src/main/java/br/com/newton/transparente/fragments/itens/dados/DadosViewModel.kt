@@ -63,8 +63,13 @@ class DadosViewModel : ViewModel() {
                 4 -> responseTransparencia =
                     interector.getPeti(date = data, codigo = codigo, pagina = 1)
             }
-            val resultado = responseTransparencia[0].toView()
-            request.value = resultado
+
+            val item = responseTransparencia.firstOrNull()
+            if (item == null) {
+                request.value = Transparencia(0, 0)
+            } else {
+                request.value = item.toView()
+            }
         }
     }
 
